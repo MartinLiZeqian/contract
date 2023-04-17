@@ -135,13 +135,15 @@ module.exports = {
   verify: {
     proxy: {
      host: '127.0.0.1',
-     port: '19180'
+     //本地代理端口
+     port: '7890'
    }
   },
   plugins: [
     'truffle-plugin-verify'
   ],
   api_keys: {
+    //主网上注册的
     etherscan: 'UVYMP5AURKNM5EJIFD2BB4EUT95RXBVGG9',
   },
   // Truffle DB is currently disabled by default; to enable it, change enabled:
