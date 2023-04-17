@@ -58,7 +58,6 @@ module.exports = {
    *
    * $ truffle test --network <network-name>
    */
-
   networks: {
     //配置想要部署的网络
     sepolia:{
@@ -67,7 +66,7 @@ module.exports = {
       },
       //gas limit
       gas:10000000,
-      gasPrice:1500000000,
+      gasPrice:15000000000,
       network_id:11155111,
     },
 
@@ -132,7 +131,19 @@ module.exports = {
       }
     }
   },
-
+  //配置验证合约插件 https://blog.csdn.net/u013288190/article/details/123865542
+  verify: {
+    proxy: {
+     host: '127.0.0.1',
+     port: '19180'
+   }
+  },
+  plugins: [
+    'truffle-plugin-verify'
+  ],
+  api_keys: {
+    etherscan: 'UVYMP5AURKNM5EJIFD2BB4EUT95RXBVGG9',
+  },
   // Truffle DB is currently disabled by default; to enable it, change enabled:
   // false to enabled: true. The default storage location can also be
   // overridden by specifying the adapter settings, as shown in the commented code below.
