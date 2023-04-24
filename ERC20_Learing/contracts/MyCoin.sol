@@ -669,13 +669,13 @@ contract MyCoin is ERC20,ERC20Burnable,Ownable{
     burn(amount);
    }
    //支持交易收取手续费 到项目方配置的地址 支持交易销毁部分代币
-   function transfer(address from,address to,uint256 value) external{
+   function myTransfer(address to,uint256 value) external{
     uint256  commission = value /200;
     //销毁一定数量的token
     burn(commission/2);
     //收取手续费到项目方指定地址
-    _transfer(from, commissionAddr, commission/2);
+    _transfer(msg.sender, commissionAddr, commission/2);
     //转账到指定账户
-    _transfer(from, to, value - commission/2 );
+    _transfer(msg.sender, to, value - commission/2 );
    }
 }
